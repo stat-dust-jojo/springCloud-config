@@ -1,0 +1,48 @@
+spring:
+  profiles:
+    active: dev
+
+---
+
+server:
+  port: 8110
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  #  config-location: classpath:mybatis/mybatis-config.xml
+  type-aliases-package: com.coding.springCloud.pojo
+  mapper-locations:
+    - classpath:mybatis/mapper/**/*.xml
+
+spring:
+  profiles: dev
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://120.27.15.131:3306/springCloud01
+    type: com.alibaba.druid.pool.DruidDataSource
+  application:
+    name: springcloud-provider-dept-test
+---
+
+server:
+  port: 8110
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  #  config-location: classpath:mybatis/mybatis-config.xml
+  type-aliases-package: com.coding.springCloud.pojo
+  mapper-locations:
+    - classpath:mybatis/mapper/**/*.xml
+
+spring:
+  profiles: test
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: root
+    password: root
+    url: jdbc:mysql://120.27.15.131:3306/springCloud02
+    type: com.alibaba.druid.pool.DruidDataSource
+  application:
+    name: springcloud-provider-dept-test
