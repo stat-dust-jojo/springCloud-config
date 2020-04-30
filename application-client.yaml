@@ -1,0 +1,30 @@
+spring:
+  profiles:
+    active: dev
+
+---
+server:
+  port: 8201
+spring:
+  profiles: dev
+  application:
+    name: springCloud-config-ubw-client-dev
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/,http://localhost:7003/eureka/
+  instance:
+    instance-id: 服务提config-8201
+---
+server:
+  port: 8202
+spring:
+  profiles: test
+  application:
+    name: springCloud-config-ubw-client-test
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:7001/eureka/,http://localhost:7002/eureka/,http://localhost:7003/eureka/
+  instance:
+    instance-id: 服务提config-8202
